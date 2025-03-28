@@ -6,18 +6,8 @@ namespace Arrays
     {
         static void Main(string[] args)
         {
-            var myArray = new DynammicArray();
-
-            myArray.Push("A");
-            myArray.Push("B");
-            myArray.Push("C");
-            myArray.Push("D");
-            myArray.Push("E"); //double array size
-            myArray.Search("E");
-            myArray.Insert(3, "Z");
-            myArray.Remove(0);
-
-            myArray.Print();
+            string s = "MarcusZ";
+            var result = Exercises.ReverseString(s);
         }
     }
 }
