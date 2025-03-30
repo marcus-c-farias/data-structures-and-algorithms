@@ -6,11 +6,25 @@ namespace Arrays
     {
         static void Main(string[] args)
         {
-            int[] a1 = { 0, 1, 2, 3, 8 };
-            int[] a2 = { 2, 3, 7, 9 };
+            var array = new DynammicArray();
 
-            // 0,1,2,2,3,3,7,8
-            var result = Exercises.MergeSortedArrays(a1, a2);
+            array.Push(1);
+            array.Push(2);
+            array.Push(3);
+            array.Push(4);
+            array.Push(5);
+            //array.Push(6);
+            //array.Push(7);
+            //array.Push(8);
+            ////array.Pop();
+
+            array.Set(1, 10);
+            var x = array.Get(1);
+
+            array.Insert(2, 15);
+            array.Remove(3);
+
+            array.Print();
         }
     }
 }

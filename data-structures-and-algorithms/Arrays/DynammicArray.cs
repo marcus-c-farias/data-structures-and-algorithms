@@ -18,53 +18,6 @@ namespace Arrays
             this.totalElements = 0;
             this.data = new object[1];
         }
-
-        public object Get(int index)
-        {
-            return this.data[index];
-        }
-        public void Set(int index, object item)
-        {
-            this.data[index] = item;
-        }
-        public bool Search(object item)
-        {
-            for (int i = 0; i < totalElements; i++)
-            {
-                if (this.data[i] == item)
-                {
-                    return true;
-                }
-            }
-
-            return false;
-        }
-        public void Insert(int index, object item)
-        {
-            object indexValue = this.data[index];
-
-            ShiftToRight(index);
-
-            this.data[index] = item;
-        }
-        public void Remove(int index)
-        {
-            ShiftToLeft(index);
-        }
-        private void ShiftToLeft(int index)
-        {
-            for (int i = index; i < length - 1; i++)
-            {
-                this.data[i] = this.data[i + 1];
-            }
-        }
-        private void ShiftToRight(int index)
-        {
-            for (int i = length - 1; i > index; i--)
-            {
-                this.data[i] = this.data[i - 1];
-            }
-        }
         public void Push(object item)
         {
             if (this.totalElements == this.length)
@@ -83,6 +36,54 @@ namespace Arrays
         {
             this.data[this.totalElements - 1] = null;
             totalElements--;
+        }
+        public object Get(int index)
+        {
+            return this.data[index];
+        }
+        public void Set(int index, object item)
+        {
+            this.data[index] = item;
+        }
+        public void Insert(int index, object item)
+        {
+            ShiftToRight(index);
+
+            this.data[index] = item;
+        }
+        private void ShiftToRight(int index)
+        {
+            for (int i = totalElements - 1; i > index; i--)
+            {
+                this.data[i] = this.data[i - 1];
+            }
+        }
+        public void Remove(int index)
+        {
+            ShiftToLeft(index);
+            
+            totalElements--;
+        }
+        private void ShiftToLeft(int index)
+        {
+            for (int i = index; i < totalElements - 1; i++)
+            {
+                this.data[i] = this.data[i + 1];
+            }
+
+            this.data[totalElements - 1] = null;
+        }
+        public bool Search(object item)
+        {
+            for (int i = 0; i < totalElements; i++)
+            {
+                if (this.data[i] == item)
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
         public int GetLength()
         {
