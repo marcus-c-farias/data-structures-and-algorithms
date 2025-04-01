@@ -16,7 +16,7 @@ namespace Arrays
             //array.Push(6);
             //array.Push(7);
             //array.Push(8);
-            ////array.Pop();
+            array.Pop();
 
             array.Set(1, 10);
             var x = array.Get(1);
