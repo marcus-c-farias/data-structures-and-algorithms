@@ -94,6 +94,10 @@ namespace Hashtables
                         Console.Write($"\"{current.Key},{current.Value}\", ");
                     }
                 }
+                else
+                {
+                    Console.WriteLine("Empty index");
+                }
             }
         }
     }
