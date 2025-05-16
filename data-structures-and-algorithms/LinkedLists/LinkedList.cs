@@ -17,7 +17,7 @@ namespace Lists
         }
 
         public int Value { get; private set; }
-        public Node Next { get; set; }
+        public Node? Next { get; set; }
     }
     public class LinkedList
     {
