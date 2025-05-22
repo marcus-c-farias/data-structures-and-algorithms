@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lists", "LinkedLists\Lists.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stacks&Queues", "Stacks&Queues\Stacks&Queues.csproj", "{44FA9057-BEF6-450C-8519-0C35AC6D797D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trees", "Trees\Trees.csproj", "{4D86A7A0-838A-4448-AA04-731F4E2D111C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{44FA9057-BEF6-450C-8519-0C35AC6D797D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{44FA9057-BEF6-450C-8519-0C35AC6D797D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{44FA9057-BEF6-450C-8519-0C35AC6D797D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D86A7A0-838A-4448-AA04-731F4E2D111C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D86A7A0-838A-4448-AA04-731F4E2D111C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D86A7A0-838A-4448-AA04-731F4E2D111C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D86A7A0-838A-4448-AA04-731F4E2D111C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

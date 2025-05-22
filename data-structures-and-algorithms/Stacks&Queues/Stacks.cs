@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace Stacks_Queues
 {
-    public class Node
+    internal class Node
     {
         public Node(int value)
         {
             this.Value = value;
-            this.Prev = null;
+            this.Next = null;
         }
 
         public int Value { get; private set; }
-        public Node? Prev { get; set; }
+        public Node? Next { get; set; }
     }
 
     public class Stacks
@@ -26,13 +26,13 @@ namespace Stacks_Queues
             var newNode = new Node(value);
             var prevNode = this.top;
 
-            newNode.Prev = prevNode;
+            newNode.Next = prevNode;
             this.top = newNode;        
         }
 
         public void Pop()
         {
-            var temp = this.top.Prev;
+            var temp = this.top.Next;
             this.top = null;
             this.top = temp;
         }
