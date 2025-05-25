@@ -14,11 +14,12 @@ namespace Trees
         public BinaryTreeNode(int value)
         {
             this.Value = value;
+            this.Left = null;
+            this.Right = null;
         }
-
-        public int Value { get; private set; }
-        public BinaryTreeNode Left { get; set; }
-        public BinaryTreeNode Right { get; set; }
+        public int Value { get; set; }
+        public BinaryTreeNode? Left { get; set; }
+        public BinaryTreeNode? Right { get; set; }
     }
     public class BinaryTree
     {
@@ -28,46 +29,66 @@ namespace Trees
 
         }
 
-        public BinaryTreeNode Insert(BinaryTreeNode node, int value)
+        //return the founded node
+        public BinaryTreeNode? LookUp(BinaryTreeNode? node, int value)
+        {
+            if (node == null || node.Value == value)
+                return node;
+
+            if (node.Value > value)
+                return this.LookUp(node.Left, value);
+
+            return this.LookUp(node.Right, value);
+        }
+        //return the root
+        public BinaryTreeNode? Insert(BinaryTreeNode? node, int value)
         {
             if (node == null)
-            {
-                node = new BinaryTreeNode(value);
-            }
-            else if (node.Value > value)
-            {
+                return new BinaryTreeNode(value);
+
+            if (node.Value > value)
                 node.Left = this.Insert(node.Left, value);
-            }
             else
-            {
                 node.Right = this.Insert(node.Right, value);
-            }
 
             return node;
         }
 
-
-        public bool LookUp(BinaryTreeNode node, int value)
+        //return the root
+        public BinaryTreeNode? Remove(BinaryTreeNode node, int value)
         {
-            bool success = false;
+            if (node == null)
+                return node;
 
-            if (node != null)
+            if (node.Value > value)
+                node.Left = this.Remove(node.Left, value);
+            else if (node.Value < value)
+                node.Right = this.Remove(node.Right, value);
+            else
             {
-                if (node.Value == value)
-                {
-                    return true;
-                }
-                else if (node.Value > value)
-                {
-                    success = this.LookUp(node.Left, value);
-                }
-                else
-                {
-                    success = this.LookUp(node.Right, value);
-                }
+                //case 1 and 2: delete leaf or node with single child
+                if (node.Left == null)
+                    return node.Right;
+
+                if (node.Right == null)
+                    return node.Left;
+
+                //case 3: find the successor and change
+                BinaryTreeNode succ = this.GetSuccessor(node);
+                node.Value = succ.Value;
+                node.Right = this.Remove(node.Right, succ.Value);
             }
 
-            return success;
+            return node;
+        }
+        private BinaryTreeNode GetSuccessor(BinaryTreeNode curr)
+        {
+            curr = curr.Right;
+            while (curr != null && curr.Left != null)
+            {
+                curr = curr.Left;
+            }
+            return curr;
         }
         public void Invert(BinaryTreeNode node)
         {
@@ -80,17 +101,19 @@ namespace Trees
                 this.Invert(node.Right);
                 this.Invert(node.Left);
 
-                //      9
-                //    /   \
-                //   4     20
-                //  / \    / \
-                // 1   6  15 170
+                //            9
+                //         /     \
+                //        4       20
+                //      /   \     / \
+                //     1     6   15 99
+                //    / \   / \
+                //   0   3 5   7
 
                 //      9
                 //    /   \
                 //   20    4
                 //  / \    / \
-                //170 15  6   1
+                // 99 15  6   1
             }
         }
         public void Transverse(BinaryTreeNode node)
@@ -102,13 +125,7 @@ namespace Trees
                 this.Transverse(node.Right);
                 this.Transverse(node.Left);
                 Console.Write($"{node.Value}, ");
-            }            
-        }
-
-        public BinaryTreeNode Remove(BinaryTreeNode node)
-        {
-
-            return new BinaryTreeNode(1);
+            }
         }
     }
 }
