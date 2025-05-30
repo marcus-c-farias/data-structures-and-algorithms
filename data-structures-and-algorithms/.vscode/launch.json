@@ -1,0 +1,18 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        
+
+        {
+            "name": "Application",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/Sorting/bin/Debug/net8.0/Sorting.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/Sorting",
+            "stopAtEntry": false,
+            "console": "internalConsole"
+        }
+    ]
+}
