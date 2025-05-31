@@ -70,4 +70,60 @@ public static class Sorting
             array[j + 1] = key;
         }
     }
+
+    public static void MergeSort(int[] array, int left, int right)
+    {
+        if (left < right)
+        {
+            int middle = (right - left) / 2 + left;
+
+            MergeSort(array, left, middle);
+            MergeSort(array, middle + 1, right);
+
+            Merge(array, left, middle, right);
+        }
+    }
+
+    private static void Merge(int[] array, int left, int middle, int right)
+    {
+        int sizeArrayLeft = middle - left + 1;
+        int sizeArrayRight = right - middle;
+
+        int[] aLeft = new int[sizeArrayLeft];
+        int[] aRight = new int[sizeArrayRight];
+        int i, j;
+
+        for (i = 0; i < sizeArrayLeft; ++i)
+            aLeft[i] = array[left + i];
+        for (j = 0; j < sizeArrayRight; ++j)
+            aRight[j] = array[middle + 1 + j];
+
+        i = 0;
+        j = 0;
+
+        int k = left;
+        while (i < sizeArrayLeft && j < sizeArrayRight) {
+            if (aLeft[i] <= aRight[j]) {
+                array[k] = aLeft[i];
+                i++;
+            }
+            else {
+                array[k] = aRight[j];
+                j++;
+            }
+            k++;
+        }
+
+        while (i < sizeArrayLeft) {
+            array[k] = aLeft[i];
+            i++;
+            k++;
+        }
+
+        while (j < sizeArrayRight) {
+            array[k] = aRight[j];
+            j++;
+            k++;
+        }
+    }
 }
