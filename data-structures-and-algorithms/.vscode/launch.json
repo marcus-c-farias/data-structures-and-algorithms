@@ -8,9 +8,9 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
-            "program": "${workspaceFolder}/Sorting/bin/Debug/net8.0/Sorting.dll",
+            "program": "${workspaceFolder}/Trees/bin/Debug/net8.0/Trees.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/Sorting",
+            "cwd": "${workspaceFolder}/Trees",
             "stopAtEntry": false,
             "console": "internalConsole"
         }

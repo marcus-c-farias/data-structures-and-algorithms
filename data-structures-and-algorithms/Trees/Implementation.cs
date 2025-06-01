@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.Design.Serialization;
@@ -116,15 +117,69 @@ namespace Trees
                 // 99 15  6   1
             }
         }
-        public void Transverse(BinaryTreeNode node)
+        public void DepthFirsthSearch_InOrder(BinaryTreeNode node)
         {
             var currentNode = node;
 
             if (currentNode != null)
             {
-                this.Transverse(node.Right);
-                this.Transverse(node.Left);
-                Console.Write($"{node.Value}, ");
+                this.DepthFirsthSearch_InOrder(node.Left);
+                Console.Write($"{node.Value},");
+                this.DepthFirsthSearch_InOrder(node.Right);
+            }
+        }
+        public void DepthFirsthSearch_PreOrder(BinaryTreeNode node)
+        {
+            var currentNode = node;
+
+            if (currentNode != null)
+            {
+                Console.Write($"{node.Value},");
+                this.DepthFirsthSearch_PreOrder(node.Left);
+                this.DepthFirsthSearch_PreOrder(node.Right);
+            }
+        }
+        public void DepthFirsthSearch_PostOrder(BinaryTreeNode node)
+        {
+            var currentNode = node;
+
+            if (currentNode != null)
+            {
+                this.DepthFirsthSearch_PostOrder(node.Left);
+                this.DepthFirsthSearch_PostOrder(node.Right);
+                Console.Write($"{node.Value},");
+            }
+        }
+
+        public void BreadthFirstSearch()
+        {
+            //            9
+            //         /     \
+            //        4       20
+            //      /   \     / \
+            //     1     6   15 99
+            //    / \   / \
+            //   0   3 5   7
+            var currentNode = this.Root;
+
+            Queue<BinaryTreeNode> values = new Queue<BinaryTreeNode>();
+            values.Enqueue(currentNode);
+
+            while (values.Count > 0)
+            {
+                currentNode = values.Peek();
+                Console.Write($"{currentNode.Value},");
+                values.Dequeue();
+
+                if (currentNode.Left is not null)
+                {
+                    values.Enqueue(currentNode.Left);
+                }
+
+                if (currentNode.Right is not null)
+                {
+                    values.Enqueue(currentNode.Right);
+                }
             }
         }
     }
