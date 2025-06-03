@@ -6,11 +6,13 @@
         {
             var exercises = new Exercices();
 
-            var result = exercises.Factorial(6);
-            result = exercises.Fibonacci(10);
+            var result = exercises.Fibonacci(6);
+            Console.WriteLine();
+            result = exercises.FibonacciDynamic(10);
+            result = exercises.FibonacciDynamic(11);
+            Console.WriteLine();
 
             
-            var reversedString = exercises.Reverse("marcus");
         }
     }
 }

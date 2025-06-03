@@ -24,7 +24,27 @@ namespace Recursion
             if (value == 1)
                 return 1;
 
+            Console.Write($"{value},");
+
             return Fibonacci(value - 1) + Fibonacci(value - 2);
+        }
+        private Dictionary<int, int> cache = new Dictionary<int, int>();
+        public int FibonacciDynamic(int value)
+        {
+            if (cache.ContainsKey(value))
+            {
+                return cache[value];
+            }
+
+            Console.Write($"{value},");
+
+            if (value < 2)
+            {
+                return value;
+            }
+
+            cache.Add(value, FibonacciDynamic(value - 2) + FibonacciDynamic(value - 1));
+            return cache[value];
         }
 
         public string Reverse(string s)

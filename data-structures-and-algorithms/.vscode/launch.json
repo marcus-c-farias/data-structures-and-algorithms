@@ -8,9 +8,9 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
-            "program": "${workspaceFolder}/Trees/bin/Debug/net8.0/Trees.dll",
+            "program": "${workspaceFolder}/Recursion/bin/Debug/net8.0/Recursion.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/Trees",
+            "cwd": "${workspaceFolder}/Recursion",
             "stopAtEntry": false,
             "console": "internalConsole"
         }
